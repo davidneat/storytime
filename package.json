@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "mocha --reporter dot --recursive --require ./test/globals --compilers js:babel-core/register test",
+    "test-ci": "npm run lint && npm test",
     "lint": "eslint src test"
   },
   "repository": {
