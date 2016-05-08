@@ -1,13 +1,18 @@
-import React from 'react';
-import TestUtils from 'react-addons-test-utils';
-
 import App from '../../../src/component/app';
+
+function shallowRender(Component) {
+  const shallowRenderer = ReactTestUtils.createRenderer();
+  shallowRenderer.render(Component);
+  return shallowRenderer.getRenderOutput();
+}
 
 describe('App', () => {
   it('returns valid dom', () => {
-    const renderer = TestUtils.createRenderer();
-    renderer.render(<App />);
-    const result = renderer.getRenderOutput();
-    assert.equal(result.props.children, 'Title');
+    assert.deepEqual(shallowRender(<App />),
+      <div>
+        <h1>Header</h1>
+        <p>Paragraph</p>
+      </div>
+    );
   });
 });

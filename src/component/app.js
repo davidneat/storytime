@@ -2,6 +2,7 @@ import React from 'react';
 
 export default () => (
   <div>
-    Title
+    <h1>Header</h1>
+    <p>Paragraph</p>
   </div>
 );
