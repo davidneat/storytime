@@ -9,6 +9,8 @@
   "globals": {
     "describe": true,
     "it": true,
-    "assert": true
+    "assert": true,
+    "React": true,
+    "ReactTestUtils": true
   }
 }

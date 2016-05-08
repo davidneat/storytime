@@ -1,3 +1,4 @@
-import createApi from './api';
+import createRenderer from './renderer';
+import App from './component/app';
 
-createApi();
+createRenderer(App)();
