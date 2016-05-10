@@ -1,4 +1,4 @@
-import assert from 'assert';
+import assert from 'power-assert';
 import sinon from 'sinon';
 import React from 'react';
 import ReactTestUtils from 'react/lib/ReactTestUtils';
