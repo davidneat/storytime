@@ -8,11 +8,6 @@ function shallowRender(Component) {
 
 describe('App', () => {
   it('returns valid dom', () => {
-    assert.deepEqual(shallowRender(<App />),
-      <div>
-        <h1>Header</h1>
-        <p>Paragraph</p>
-      </div>
-    );
+    assert.deepEqual(shallowRender(<App />).type, 'div');
   });
 });
