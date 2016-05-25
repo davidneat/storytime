@@ -4,7 +4,7 @@
   "description": "Agile User Stories",
   "main": "src/index.js",
   "scripts": {
-    "build": "rimraf ./dist && mkdirp ./dist && cp ./public/* ./dist && NODE_ENV=development browserify ./src/index.js -t babelify --insert-global-vars global --outfile ./dist/app.js",
+    "build": "rimraf ./dist && mkdirp ./dist && cp ./public/* ./dist && browserify ./src/index.js -t babelify --outfile ./dist/app.js",
     "test": "mocha --reporter dot --recursive --require ./test/globals --compilers js:babel-core/register test",
     "test-ci": "npm run lint && npm test && npm run build",
     "lint": "eslint src test",
