@@ -1,7 +1,7 @@
 {
   "name": "storytime",
   "version": "0.0.1",
-  "description": "Agile User Stories",
+  "description": "Agile User Stories using React, Immutable.js and Redux",
   "main": "src/index.js",
   "scripts": {
     "build": "rimraf ./dist && mkdirp ./dist && cp ./public/* ./dist && browserify ./src/index.js -t babelify --outfile ./dist/app.js",
