@@ -36,10 +36,13 @@
     "mkdirp": "^0.5.1",
     "mocha": "^2.4.5",
     "power-assert": "^1.4.1",
-    "react": "^15.0.1",
     "react-addons-test-utils": "^15.0.1",
-    "react-dom": "^15.0.1",
     "rimraf": "^2.5.2",
     "sinon": "^1.17.3"
+  },
+  "dependencies": {
+    "immutable": "^3.8.1",
+    "react-dom": "^15.0.1",
+    "react": "^15.0.1"
   }
 }
