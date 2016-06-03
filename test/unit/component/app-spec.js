@@ -7,12 +7,8 @@ function shallowRender(Component) {
 }
 
 describe('App', () => {
-  it('returns valid dom', () => {
-    assert.deepEqual(shallowRender(<App />),
-      <div>
-        <h1>Header</h1>
-        <p>Paragraph</p>
-      </div>
-    );
+  it('returns an unordered list', () => {
+    const store = { stories: ['foo'] };
+    assert.deepEqual(shallowRender(<App store={store} />).type, 'ul');
   });
 });
