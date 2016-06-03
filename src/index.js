@@ -3,10 +3,10 @@ import rootReducer from './reducer';
 import createRenderer from './renderer';
 import App from './component/app';
 
-const renderer = createRenderer(App)();
+const renderer = createRenderer(App);
 
 const initialState = {
-  stories: ['foo']
+  story: ['foo']
 };
 
 const store = createStore(rootReducer, initialState);

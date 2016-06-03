@@ -1,8 +1,13 @@
 import React from 'react';
 
-export default () =>
-  <div>
-    <h1>Header</h1>
-    <p>Paragraph</p>
-  </div>
+const renderStory = (story, key) =>
+  <li key={key}>{story}</li>
 ;
+
+const renderStories = (stories = []) => stories.map(renderStory);
+
+export default (props) => {
+  const { story } = props.store;
+  const stories = renderStories(story) || 'No Stories';
+  return <ul>{stories}</ul>;
+};
