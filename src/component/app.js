@@ -7,10 +7,9 @@ const renderStory = (story, key) =>
 const renderStories = (stories = []) => stories.map(renderStory);
 
 export default function App(props) {
-  const { story } = props.store;
-  const stories = renderStories(story) || 'No Stories';
-
-  return <ul>{stories}</ul>;
+  const { stories } = props.store;
+  const storyList = renderStories(stories) || 'No Stories';
+  return <ul>{storyList}</ul>;
 }
 
 App.propTypes = {

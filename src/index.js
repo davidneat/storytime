@@ -6,7 +6,7 @@ import App from './component/app';
 const renderer = createRenderer(App);
 
 const initialState = {
-  story: ['foo']
+  stories: ['foo']
 };
 
 const store = createStore(rootReducer, initialState);

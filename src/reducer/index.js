@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import story from './story';
+import stories from './stories';
 
 export default combineReducers({
-  story
+  stories
 });
