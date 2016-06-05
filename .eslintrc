@@ -12,5 +12,10 @@
     "assert": true,
     "React": true,
     "ReactTestUtils": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true
+    }
   }
 }
