@@ -10,6 +10,9 @@
     "describe": true,
     "it": true,
     "assert": true,
+    "beforeEach": true,
+    "afterEach": true,
+    "sinon": true,
     "React": true,
     "ReactTestUtils": true
   }
