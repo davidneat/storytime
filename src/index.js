@@ -12,7 +12,7 @@ const store = createStore(rootReducer, initialState);
 const actions = createActions(store);
 const renderer = createRenderer(App, actions);
 
-actions.addStory();
+actions.addStory('bar');
 
 function render() {
   renderer(store.getState());

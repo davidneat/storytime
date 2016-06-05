@@ -1,12 +1,8 @@
+
 export default (store) => {
-  function addStory() {
-    store.dispatch({
-      type: 'ADD_STORY',
-      text: 'bar'
-    });
-  }
+  const dispatch = (type, payload) => store.dispatch({ type, payload });
 
   return {
-    addStory
+    addStory: (payload) => dispatch('ADD_STORY', payload)
   };
 };
