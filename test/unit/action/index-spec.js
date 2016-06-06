@@ -1,20 +1,18 @@
 import createActions from '../../../src/action';
 
-function createDispatchCalledWith(store) {
-  return (type, payload) => store.dispatch.calledWith({ type, payload });
+function createDispatchCalledWith(dispatch) {
+  return (type, payload) => dispatch.calledWith({ type, payload });
 }
 
 describe('Action', () => {
   let actions;
-  let store;
   let dispatchCalledWith;
+  let dispatch;
 
   beforeEach(() => {
-    store = {
-      dispatch: sinon.stub()
-    };
-    dispatchCalledWith = createDispatchCalledWith(store);
-    actions = createActions(store);
+    dispatch = sinon.stub();
+    dispatchCalledWith = createDispatchCalledWith(dispatch);
+    actions = createActions(dispatch);
   });
 
   it('exposes addStory which call store.dispatch with type and payload', () => {

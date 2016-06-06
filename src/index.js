@@ -8,11 +8,10 @@ const initialState = {
   stories: ['foo']
 };
 
-const store = createStore(rootReducer, initialState);
-const actions = createActions(store);
+const { subscribe, getState, dispatch } = createStore(rootReducer, initialState);
+const actions = createActions(dispatch);
 const renderer = createRenderer(App, actions);
 
 actions.addStory('bar');
 
-const { subscribe, getState } = store;
 subscribeRenderer(renderer, subscribe, getState);
