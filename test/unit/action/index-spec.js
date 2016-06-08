@@ -1,3 +1,4 @@
+import { ADD_STORY } from '../../../src/action/type';
 import createActions from '../../../src/action';
 
 function createDispatchCalledWith(dispatch) {
@@ -18,6 +19,6 @@ describe('Action', () => {
   it('exposes addStory which call store.dispatch with type and payload', () => {
     const payload = 'foobar';
     actions.addStory(payload);
-    assert.equal(dispatchCalledWith('ADD_STORY', payload), true);
+    assert.equal(dispatchCalledWith(ADD_STORY, payload), true);
   });
 });
