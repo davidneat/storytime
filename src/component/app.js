@@ -7,16 +7,18 @@ const renderStory = (story, key) =>
 
 const renderStories = (stories = []) => stories.map(renderStory);
 
-export default function App(props) {
+const App = (props) => {
   const { stories } = props.store;
   const storyList = renderStories(stories) || 'No Stories';
   return (<div>
     <Input actions={props.actions} />
     <ul>{storyList}</ul>
   </div>);
-}
+};
 
 App.propTypes = {
   store: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };
+
+export default App;
