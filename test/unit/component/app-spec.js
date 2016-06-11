@@ -9,6 +9,7 @@ function shallowRender(Component) {
 describe('App', () => {
   it('returns a div', () => {
     const store = { stories: ['foo'] };
-    assert.deepEqual(shallowRender(<App store={store} />).type, 'div');
+    const actions = {};
+    assert.deepEqual(shallowRender(<App store={store} actions={actions} />).type, 'div');
   });
 });
