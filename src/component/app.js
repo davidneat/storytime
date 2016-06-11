@@ -1,17 +1,23 @@
 import React, { PropTypes } from 'react';
+import Input from './input';
 
 const renderStory = (story, key) =>
   <li key={key}>{story}</li>
 ;
 
-const renderStories = (stories = []) => stories.map(renderStory);
+const renderStories = ({ stories }) => stories.map(renderStory);
 
-export default function App(props) {
-  const { stories } = props.store;
-  const storyList = renderStories(stories) || 'No Stories';
-  return <ul>{storyList}</ul>;
-}
+const App = ({ store, actions }) => {
+  const storyList = renderStories(store);
+  return (<div>
+    <Input actions={actions} />
+    <ul>{storyList}</ul>
+  </div>);
+};
 
 App.propTypes = {
-  store: PropTypes.object.isRequired
+  store: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired
 };
+
+export default App;
