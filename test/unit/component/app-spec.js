@@ -7,8 +7,8 @@ function shallowRender(Component) {
 }
 
 describe('App', () => {
-  it('returns an unordered list', () => {
+  it('returns a div', () => {
     const store = { stories: ['foo'] };
-    assert.deepEqual(shallowRender(<App store={store} />).type, 'ul');
+    assert.deepEqual(shallowRender(<App store={store} />).type, 'div');
   });
 });
