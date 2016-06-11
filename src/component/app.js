@@ -5,13 +5,13 @@ const renderStory = (story, key) =>
   <li key={key}>{story}</li>
 ;
 
-const renderStories = (stories = []) => stories.map(renderStory);
+const renderStories = ({ stories }) => stories.map(renderStory);
 
 const App = (props) => {
-  const { stories } = props.store;
-  const storyList = renderStories(stories) || 'No Stories';
+  const { store, actions } = props;
+  const storyList = renderStories(store) || 'No Stories';
   return (<div>
-    <Input actions={props.actions} />
+    <Input actions={actions} />
     <ul>{storyList}</ul>
   </div>);
 };
