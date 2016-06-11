@@ -7,9 +7,8 @@ const renderStory = (story, key) =>
 
 const renderStories = ({ stories }) => stories.map(renderStory);
 
-const App = (props) => {
-  const { store, actions } = props;
-  const storyList = renderStories(store) || 'No Stories';
+const App = ({ store, actions }) => {
+  const storyList = renderStories(store);
   return (<div>
     <Input actions={actions} />
     <ul>{storyList}</ul>
