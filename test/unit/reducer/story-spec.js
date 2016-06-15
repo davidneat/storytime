@@ -2,7 +2,7 @@ import { ADD_STORY, REMOVE_STORY } from '../../../src/action/type';
 import storyReducer from '../../../src/reducer/story';
 
 describe('Story Reducer', () => {
-  it('adds new story on ADD_STORY', () => {
+  it(`adds new story on ${ADD_STORY}`, () => {
     const state = ['foo'];
     const action = {
       type: ADD_STORY,
@@ -12,7 +12,7 @@ describe('Story Reducer', () => {
     assert.deepEqual(storyReducer(state, action), ['foo', 'bar']);
   });
 
-  it('removes story on REMOVE_STORY', () => {
+  it(`removes story on ${REMOVE_STORY}`, () => {
     const state = ['foo', 'bar'];
     const action = {
       type: REMOVE_STORY,
