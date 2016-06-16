@@ -1,14 +1,17 @@
 import React, { PropTypes } from 'react';
 import Input from './input';
 
-const renderStory = (story, key) =>
-  <li key={key}>{story}</li>
-;
+const renderStories = (stories, actions) => stories.map((story, key) => {
+  const handleRemove = () => actions.removeStory(story);
 
-const renderStories = ({ stories }) => stories.map(renderStory);
+  return (<li key={key}>
+    <span>{story}</span>
+    <button onClick={handleRemove}>remove</button>
+  </li>);
+});
 
 const App = ({ store, actions }) => {
-  const storyList = renderStories(store);
+  const storyList = renderStories(store.stories, actions);
   return (<div>
     <Input actions={actions} />
     <ul>{storyList}</ul>
