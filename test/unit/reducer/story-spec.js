@@ -1,4 +1,4 @@
-import { ADD_STORY, REMOVE_STORY } from '../../../src/action/type';
+import { ADD_STORY, REMOVE_STORY, REMOVE_STORIES } from '../../../src/action/type';
 import storyReducer from '../../../src/reducer/story';
 
 describe('Story Reducer', () => {
@@ -20,5 +20,15 @@ describe('Story Reducer', () => {
     };
 
     assert.deepEqual(storyReducer(state, action), ['foo']);
+  });
+
+  it(`removes stories on ${REMOVE_STORIES}`, () => {
+    const state = ['foo', 'bar', 'any'];
+    const action = {
+      type: REMOVE_STORY,
+      payload: ['foo', 'bar']
+    };
+
+    assert.deepEqual(storyReducer(state, action), ['any']);
   });
 });
