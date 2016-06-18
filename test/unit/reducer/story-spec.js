@@ -25,7 +25,7 @@ describe('Story Reducer', () => {
   it(`removes stories on ${REMOVE_STORIES}`, () => {
     const state = ['foo', 'bar', 'any'];
     const action = {
-      type: REMOVE_STORY,
+      type: REMOVE_STORIES,
       payload: ['foo', 'bar']
     };
 
