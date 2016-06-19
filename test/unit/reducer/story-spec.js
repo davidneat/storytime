@@ -26,7 +26,7 @@ describe('Story Reducer', () => {
     const state = ['foo', 'bar', 'any'];
     const action = {
       type: REMOVE_STORIES,
-      payload: ['foo', 'bar']
+      payload: ['foo', 'bar', 'other']
     };
 
     assert.deepEqual(storyReducer(state, action), ['any']);
