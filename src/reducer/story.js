@@ -1,6 +1,5 @@
 import { ADD_STORY, REMOVE_STORY, REMOVE_STORIES } from '../action/type';
 
-
 const removeStoryFromState = (story, state) => {
   if (state.indexOf(story) !== -1) {
     state.splice(state.indexOf(story), 1);
