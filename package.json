@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davidneat/storytime.git"
+    "url": "git+https://github.com/davidspinat/storytime.git"
   },
-  "author": "davidneat",
+  "author": "davidspinat",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/davidneat/storytime/issues"
+    "url": "https://github.com/davidspinat/storytime/issues"
   },
-  "homepage": "https://davidneat.github.io/storytime",
+  "homepage": "https://davidspinat.github.io/storytime",
   "devDependencies": {
     "babel-core": "^6.7.7",
     "babel-plugin-espower": "^2.1.2",

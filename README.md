@@ -1,7 +1,7 @@
 # Storytime
 
-[![Build Status](https://travis-ci.org/davidneat/storytime.svg)](https://travis-ci.org/davidneat/storytime)
-[![Dependency Status](https://david-dm.org/davidneat/storytime.svg?theme=shields.io)](https://david-dm.org/davidneat/storytime)
-[![devDependency Status](https://david-dm.org/davidneat/storytime/dev-status.svg?theme=shields.io)](https://david-dm.org/davidneat/storytime#info=devDependencies)
+[![Build Status](https://travis-ci.org/davidspinat/storytime.svg)](https://travis-ci.org/davidspinat/storytime)
+[![Dependency Status](https://david-dm.org/davidspinat/storytime.svg?theme=shields.io)](https://david-dm.org/davidspinat/storytime)
+[![devDependency Status](https://david-dm.org/davidspinat/storytime/dev-status.svg?theme=shields.io)](https://david-dm.org/davidspinat/storytime#info=devDependencies)
 
 Agile User Stories
