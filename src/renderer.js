@@ -1,16 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
-export const createRenderer = (RootComponent, actions) => (store) => {
+export const createRenderer = (RootComponent, store, actions) => {
   const domNode = document.getElementById('app');
   return ReactDOM.render(
-    <RootComponent store={store} actions={actions} />,
+    <Provider store={store}>
+      <RootComponent actions={actions} />
+    </Provider>,
     domNode
   );
-};
-
-export const subscribeRenderer = (renderer, subscribe, getState) => {
-  const render = () => renderer(getState());
-  subscribe(render);
-  render();
 };
