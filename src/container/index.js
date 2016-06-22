@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import Input from './input';
+import { connect } from 'react-redux';
+import Input from '../component/input';
 
 const renderStories = (stories, actions) => stories.map((story, key) => {
   const handleRemove = () => actions.removeStory(story);
@@ -10,8 +11,8 @@ const renderStories = (stories, actions) => stories.map((story, key) => {
   </li>);
 });
 
-const App = ({ store, actions }) => {
-  const storyList = renderStories(store.stories, actions);
+const App = ({ stories, actions }) => {
+  const storyList = renderStories(stories, actions);
   return (<div>
     <Input actions={actions} />
     <ul>{storyList}</ul>
@@ -19,8 +20,12 @@ const App = ({ store, actions }) => {
 };
 
 App.propTypes = {
-  store: PropTypes.object.isRequired,
+  stories: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
 
-export default App;
+const mapStateToProps = (state) => ({
+  stories: state.stories
+});
+
+export default connect(mapStateToProps)(App);
