@@ -12,7 +12,10 @@ const removeStoryFromState = (story, state) => {
 export default (state = [], action = null) => {
   switch (action.type) {
     case ADD_STORY:
-      return state.concat([action.payload]);
+      return [
+        ...state,
+        action.payload
+      ];
     case REMOVE_STORY:
       return removeStoryFromState(action.payload, state);
     case REMOVE_STORIES:
