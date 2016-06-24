@@ -1,29 +1,36 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-const renderStoryItems = (stories, actions) => stories.map((story, key) => {
-  const handleRemove = () => {
-    actions.removeStory(story);
-  };
-
+const renderStoryItems = (stories, handleRemove) => stories.map((story, key) => {
+  const onClick = () => handleRemove(story);
   return (<li key={key}>
     <span>{story}</span>
-    <button onClick={handleRemove}>remove</button>
+    <button onClick={onClick}>remove</button>
   </li>);
 });
 
-const StoryList = ({ stories, actions }) => {
-  const listItems = renderStoryItems(stories, actions);
+const StoryList = ({ stories, handleRemove }) => {
+  const listItems = renderStoryItems(stories, handleRemove);
   return <ul>{listItems}</ul>;
 };
 
 StoryList.propTypes = {
   stories: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  handleRemove: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
   stories: state.stories
 });
 
-export default connect(mapStateToProps)(StoryList);
+const mapDispatchToProps = (dispatch, { actions }) => {
+  const { removeStory } = actions;
+  return {
+    handleRemove: (story) => {
+      dispatch(removeStory(story));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(StoryList);
