@@ -14,7 +14,7 @@ describe('Action', () => {
   });
 
 
-  it('exposes removeStory which calls store.dispatch with type and payload', () => {
+  it('exposes removeStory which returns an object with type and payload', () => {
     const payload = 'foobar';
     assert.deepEqual(actions.removeStory(payload), { type: REMOVE_STORY, payload });
   });
