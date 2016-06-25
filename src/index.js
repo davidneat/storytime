@@ -5,11 +5,9 @@ import createActions from './action';
 import App from './container';
 
 const initialState = {
-  stories: ['foo']
+  stories: ['foo', 'bar']
 };
 
 const store = createStore(rootReducer, initialState);
-const actions = createActions(store.dispatch);
+const actions = createActions();
 createRenderer(App, store, actions);
-
-actions.addStory('bar');

@@ -1,31 +1,21 @@
 import { ADD_STORY, REMOVE_STORY } from '../../../src/action/type';
 import createActions from '../../../src/action';
 
-function createDispatchCalledWith(dispatch) {
-  return (type, payload) => dispatch.calledWith({ type, payload });
-}
-
 describe('Action', () => {
   let actions;
-  let dispatchCalledWith;
-  let dispatch;
 
   beforeEach(() => {
-    dispatch = sinon.stub();
-    dispatchCalledWith = createDispatchCalledWith(dispatch);
-    actions = createActions(dispatch);
+    actions = createActions();
   });
 
-  it('exposes addStory which calls store.dispatch with type and payload', () => {
+  it('exposes addStory which returns an object with type and payload', () => {
     const payload = 'foobar';
-    actions.addStory(payload);
-    assert.equal(dispatchCalledWith(ADD_STORY, payload), true);
+    assert.deepEqual(actions.addStory(payload), { type: ADD_STORY, payload });
   });
 
 
   it('exposes removeStory which calls store.dispatch with type and payload', () => {
     const payload = 'foobar';
-    actions.removeStory(payload);
-    assert.equal(dispatchCalledWith(REMOVE_STORY, payload), true);
+    assert.deepEqual(actions.removeStory(payload), { type: REMOVE_STORY, payload });
   });
 });
