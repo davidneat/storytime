@@ -1,19 +1,33 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 
-const Input = ({ actions }, input) => {
-  const addStory = (event) => {
+let input;
+
+const Input = ({ addStory }) => {
+  const onSubmit = (event) => {
     event.preventDefault();
-    actions.addStory(input.value);
+    addStory(input.value);
     input.value = '';
   };
 
-  return (<form onSubmit={addStory}>
+  return (<form onSubmit={onSubmit}>
     <input ref={node => (input = node)} />
   </form>);
 };
 
 Input.propTypes = {
-  actions: PropTypes.object.isRequired
+  addStory: PropTypes.func.isRequired
 };
 
-export default Input;
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = (dispatch, { actions }) => {
+  const { addStory } = actions;
+  return {
+    addStory: (story) => {
+      dispatch(addStory(story));
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Input);
