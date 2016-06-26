@@ -5,7 +5,7 @@ import createActions from './action';
 import App from './container';
 
 const initialState = {
-  stories: ['foo', 'bar']
+  stories: [{ id: 0, text: 'foo' }]
 };
 
 const store = createStore(rootReducer, initialState);
