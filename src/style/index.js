@@ -2,18 +2,29 @@ import StyleSheet from 'stilr';
 
 const styles = StyleSheet.create({
   app: {
-    background: '#ccc'
+    background: '#ccc',
+    fontFamily: 'sans-serif',
+    padding: '20px'
   },
   list: {
     display: 'flex',
     flexDirection: 'column'
   },
   listItem: {
-    height: '30px'
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: '10px 0'
+  },
+  text: {
+    flexGrow: 1
   },
   remove: {
+    flexFlow: 'flex-end',
     background: '#c00',
-    color: '#fff'
+    color: '#fff',
+    marginLeft: '10px',
+    padding: '5px 10px'
   }
 });
 
