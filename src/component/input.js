@@ -2,17 +2,16 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 let input;
-let selectedRole = 'user';
+let selectedRole;
 
 const Input = ({ addStory }) => {
   const onSubmit = (event) => {
     event.preventDefault();
-    addStory({ role: selectedRole, text: input.value });
+    addStory({ role: selectedRole || 'user', text: input.value });
     input.value = '';
   };
 
   const onChange = (event) => {
-    event.preventDefault();
     selectedRole = event.target.value;
   };
 
