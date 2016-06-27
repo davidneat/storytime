@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 const renderStoryItems = (stories, styles, handleRemove) => stories.map((story, key) => {
   const onClick = () => handleRemove(story);
   return (<li key={key} className={styles.listItem}>
-    <span className={styles.text}>{story.text}</span>
+    <span className={styles.text}>{story.role} - {story.text}</span>
     <button onClick={onClick} className={styles.remove}>remove</button>
   </li>);
 });
