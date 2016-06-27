@@ -6,7 +6,7 @@ import createStyles from './style';
 import App from './container';
 
 const initialState = {
-  stories: [{ id: 0, text: 'foo' }]
+  stories: [{ id: 0, role: 'user', text: 'foo' }]
 };
 
 const store = createStore(rootReducer, initialState);

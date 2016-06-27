@@ -3,13 +3,19 @@ import storyReducer from '../../../src/reducer/story';
 
 describe('Story Reducer', () => {
   it(`adds new story on ${ADD_STORY}`, () => {
-    const state = [{ id: 0, text: 'foo' }];
+    const state = [{ id: 0, role: 'developer', text: 'foo' }];
     const action = {
       type: ADD_STORY,
-      payload: 'bar'
+      payload: {
+        role: 'user',
+        text: 'bar'
+      }
     };
 
-    assert.deepEqual(storyReducer(state, action), [{ id: 0, text: 'foo' }, { id: 1, text: 'bar' }]);
+    assert.deepEqual(storyReducer(state, action), [
+      { id: 0, role: 'developer', text: 'foo' },
+      { id: 1, role: 'user', text: 'bar' }
+    ]);
   });
 
   it(`removes story on ${REMOVE_STORY}`, () => {
@@ -22,7 +28,7 @@ describe('Story Reducer', () => {
     assert.deepEqual(storyReducer(state, action), [{ id: 0, text: 'foo' }]);
   });
 
-  it.only(`removes stories on ${REMOVE_STORIES}`, () => {
+  it(`removes stories on ${REMOVE_STORIES}`, () => {
     const state = [{ id: 0, text: 'foo' }, { id: 1, text: 'bar' }, { id: 2, text: 'any' }];
     const action = {
       type: REMOVE_STORIES,
