@@ -2,6 +2,7 @@ import { createStore } from 'redux';
 import rootReducer from './reducer';
 import { createRenderer } from './renderer';
 import createActions from './action';
+import createStyles from './style';
 import App from './container';
 
 const initialState = {
@@ -10,4 +11,5 @@ const initialState = {
 
 const store = createStore(rootReducer, initialState);
 const actions = createActions();
-createRenderer(App, store, actions);
+const styles = createStyles();
+createRenderer(App, store, actions, styles);

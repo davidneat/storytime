@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-export const createRenderer = (RootComponent, store, actions) => {
+export const createRenderer = (RootComponent, store, actions, styles) => {
   const domNode = document.getElementById('app');
   return ReactDOM.render(
     <Provider store={store}>
-      <RootComponent actions={actions} />
+      <RootComponent actions={actions} styles={styles} />
     </Provider>,
     domNode
   );
