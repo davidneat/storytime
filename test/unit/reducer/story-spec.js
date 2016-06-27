@@ -22,7 +22,7 @@ describe('Story Reducer', () => {
     assert.deepEqual(storyReducer(state, action), [{ id: 0, text: 'foo' }]);
   });
 
-  it.only(`removes stories on ${REMOVE_STORIES}`, () => {
+  it(`removes stories on ${REMOVE_STORIES}`, () => {
     const state = [{ id: 0, text: 'foo' }, { id: 1, text: 'bar' }, { id: 2, text: 'any' }];
     const action = {
       type: REMOVE_STORIES,
