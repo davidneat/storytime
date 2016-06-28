@@ -1,9 +1,19 @@
 import { ADD_STORY, REMOVE_STORY, REMOVE_STORIES } from '../../../src/action/type';
-import storyReducer from '../../../src/reducer/story';
+import createStoryReducer from '../../../src/reducer/story';
 
 describe('Story Reducer', () => {
+  let storyReducer;
+  let createId;
+  let storyId;
+
+  beforeEach(() => {
+    storyId = 'random-hash';
+    createId = sinon.stub().returns(storyId);
+    storyReducer = createStoryReducer(createId);
+  });
+
   it(`adds new story on ${ADD_STORY}`, () => {
-    const state = [{ id: 0, role: 'developer', text: 'foo' }];
+    const state = [{ id: 'foo', role: 'developer', text: 'foo' }];
     const action = {
       type: ADD_STORY,
       payload: {
@@ -13,8 +23,8 @@ describe('Story Reducer', () => {
     };
 
     assert.deepEqual(storyReducer(state, action), [
-      { id: 0, role: 'developer', text: 'foo' },
-      { id: 1, role: 'user', text: 'bar' }
+      { id: 'foo', role: 'developer', text: 'foo' },
+      { id: storyId, role: 'user', text: 'bar' }
     ]);
   });
 

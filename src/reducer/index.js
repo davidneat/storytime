@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import stories from './story';
+import createStoryReducer from './story';
 
-export default combineReducers({
-  stories
+export default (createId) => combineReducers({
+  stories: createStoryReducer(createId)
 });
