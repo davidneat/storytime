@@ -9,16 +9,13 @@ const removeStoryFromState = (story, state) => {
   ];
 };
 
-let storyId = 0;
-
-export default (state = [], action = null) => {
+export default createId => (state = [], action = null) => {
   switch (action.type) {
     case ADD_STORY: {
-      storyId++;
       const { text, role } = action.payload;
       return [
         ...state,
-        { id: storyId, text, role }
+        { id: createId(), text, role }
       ];
     }
     case REMOVE_STORY:
