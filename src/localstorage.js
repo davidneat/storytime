@@ -3,6 +3,9 @@ export default (localStorage, key) => {
 
   return {
     getData: () => localStorage.getItem(key),
-    connect: ({ subscribe, getState }) => subscribe(() => setData(getState()))
+    connect: ({ subscribe, getState }) => subscribe(() => {
+      const jsonString = JSON.stringify(getState());
+      setData(jsonString);
+    })
   };
 };

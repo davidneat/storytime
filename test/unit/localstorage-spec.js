@@ -36,13 +36,22 @@ describe('Local Storage', () => {
   });
 
   describe('connect', () => {
-    it('subscribes to the store with a callback which calls localStorageMock.setItem', () => {
-      const value = 'store-updated';
+    it('sets up the store subscription with a callback', () => {
+      storageInstance.connect(storeMock);
+      assert.ok(storeMock.subscribe.calledOnce);
+      assert.ok(storeMock.subscribe.calledWith(sinon.match.func));
+    });
+  });
+
+  describe.only('store subscription callback', () => {
+    it('calls localStorageMock.setItem with the passed value as json string', () => {
+      const value = { foo: 'bar' };
+      const jsonString = JSON.stringify(value);
       storeMock.subscribe.callsArgWith(0);
       storeMock.getState.returns(value);
 
       storageInstance.connect(storeMock);
-      assert.deepEqual(localStorageMock.setItem.lastCall.args, [key, value]);
+      assert.deepEqual(localStorageMock.setItem.lastCall.args, [key, jsonString]);
     });
   });
 });
