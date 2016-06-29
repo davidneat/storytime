@@ -43,7 +43,7 @@ describe('Local Storage', () => {
     });
   });
 
-  describe.only('store subscription callback', () => {
+  describe('store subscription callback', () => {
     it('calls localStorageMock.setItem with the passed value as json string', () => {
       const value = { foo: 'bar' };
       const jsonString = JSON.stringify(value);

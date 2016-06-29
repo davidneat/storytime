@@ -1,11 +1,8 @@
 export default (localStorage, key) => {
-  const setData = (value) => localStorage.setItem(key, value);
+  const setData = (data) => localStorage.setItem(key, JSON.stringify(data));
 
   return {
     getData: () => localStorage.getItem(key),
-    connect: ({ subscribe, getState }) => subscribe(() => {
-      const jsonString = JSON.stringify(getState());
-      setData(jsonString);
-    })
+    connect: ({ subscribe, getState }) => subscribe(() => setData(getState()))
   };
 };
