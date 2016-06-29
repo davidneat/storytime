@@ -1,4 +1,4 @@
-import createLocalstorage from '../../src/localstorage';
+import createLocalStorage from '../../src/localstorage';
 
 describe('Local Storage', () => {
   let key;
@@ -19,7 +19,7 @@ describe('Local Storage', () => {
       getState: sinon.stub()
     };
 
-    storageInstance = createLocalstorage(localStorageMock, key);
+    storageInstance = createLocalStorage(localStorageMock, key);
   });
 
   describe('getData', () => {

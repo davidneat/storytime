@@ -1,13 +1,13 @@
 import { createStore } from 'redux';
 import createReducer from './reducer';
 import { createId } from './util';
-import createLocalstorage from './localstorage.js';
+import createLocalStorage from './localstorage.js';
 import createRenderer from './renderer';
 import createActions from './action';
 import createStyles from './style';
 import App from './container';
 
-const storage = createLocalstorage(global.localStorage, 'story-time');
+const storage = createLocalStorage(global.localStorage, 'story-time');
 
 const initialState = {
   stories: [{ id: createId(), role: 'user', text: 'foo' }]
