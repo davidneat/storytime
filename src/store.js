@@ -1,7 +1,14 @@
-import { createStore } from 'redux';
-
-const initialState = {
-  stories: [{ id: '123', role: 'user', text: 'foo' }]
+const defaultState = {
+  stories: []
 };
 
-export default (rootReducer) => createStore(rootReducer, initialState);
+export default (createReduxStore, rootReducer, storage) => {
+  const storageData = storage.getData();
+
+  const initalState = {
+    ...defaultState,
+    ...storageData
+  };
+
+  return createReduxStore(rootReducer, initalState);
+};

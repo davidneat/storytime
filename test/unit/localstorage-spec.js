@@ -28,10 +28,15 @@ describe('Local Storage', () => {
       assert.equal(localStorageMock.getItem.lastCall.args[0], key);
     });
 
+    it('returns an empty object when local data does not exist', () => {
+      localStorageMock.getItem.returns(null);
+      assert.deepEqual(storageInstance.getData(), {});
+    });
+
     it('returns the data from the store', () => {
-      const data = 'all-the-data';
+      const data = '{ "foo": "bar" }';
       localStorageMock.getItem.returns(data);
-      assert.equal(storageInstance.getData(), data);
+      assert.deepEqual(storageInstance.getData(), { foo: 'bar' });
     });
   });
 
