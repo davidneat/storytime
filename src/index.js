@@ -1,4 +1,3 @@
-import { createStore as createReduxStore } from 'redux';
 import createStore from './store';
 import createReducer from './reducer';
 import { createId } from './util';
@@ -11,7 +10,7 @@ import App from './container';
 const storage = createLocalStorage(global.localStorage, 'story-time');
 
 const rootReducer = createReducer(createId);
-const store = createStore(createReduxStore, rootReducer, storage);
+const store = createStore(rootReducer, storage);
 const actions = createActions();
 const styles = createStyles();
 

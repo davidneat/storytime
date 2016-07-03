@@ -1,8 +1,10 @@
+import * as redux from 'redux';
+
 const defaultState = {
   stories: []
 };
 
-export default (createReduxStore, rootReducer, storage) => {
+export default (rootReducer, storage) => {
   const storageData = storage.getData();
 
   const initalState = {
@@ -10,5 +12,5 @@ export default (createReduxStore, rootReducer, storage) => {
     ...storageData
   };
 
-  return createReduxStore(rootReducer, initalState);
+  return redux.createStore(rootReducer, initalState);
 };
