@@ -8,7 +8,7 @@ import createActions from './action';
 import createStyles from './style';
 import App from './container';
 
-const storage = createLocalStorage(global.localStorage, 'story-time');
+const storage = createLocalStorage(global.localStorage, 'storytime');
 
 const rootReducer = createReducer(createId);
 const store = createStore(createReduxStore, rootReducer, storage);
